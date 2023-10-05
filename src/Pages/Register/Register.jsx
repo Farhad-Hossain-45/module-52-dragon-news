@@ -3,13 +3,22 @@ import Navbar from "../Shared/Navbar/Navbar";
 
 
 const Register = () => {
+  const handelRegisterBtn = e => {
+    e.preventDefault()
+    const form = new FormData(e.currentTarget)
+    const name = form.get('name')
+    const photo = form.get('photo')
+    const email = form.get('email')
+    const password = form.get('password')
+    console.log(name,photo,email,password)
+  }
     return (
         <div>
             <Navbar></Navbar>
             <h1 className="text-3xl font-black text-center mt-4">
             Register your account
       </h1>
-      <form  className="lg:w-1/2 mx-auto md:w-3/4 ">
+      <form onSubmit={handelRegisterBtn} className="lg:w-1/2 mx-auto md:w-3/4 ">
       <div className="form-control">
         <label className="label">
           <span className="label-text">Your Name</span>
